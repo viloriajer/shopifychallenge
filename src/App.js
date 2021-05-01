@@ -7,6 +7,7 @@ import { Search } from './components/Search';
 import { MovieProvider } from './context/Context';
 
 export const Context = createContext({})
+
 function App() {
 
   const [title,setTitle] = useState("");

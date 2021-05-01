@@ -3,9 +3,15 @@ import {Context} from '../App'
 
 export const Nominations = () => {
 
-    const {nominees} = useContext(Context)
+    const {nominees,setNominees} = useContext(Context)
 
-    const remove = () =>{
+    const remove = (movie) =>{
+        const remove = nominees.findIndex(item=>item.imdbID === movie.imdbID)
+        let newArray = [...nominees]
+        newArray.splice(remove,1)
+        console.log(newArray);
+        setNominees(newArray)
+
     }
     return (
         <div>
@@ -14,7 +20,7 @@ export const Nominations = () => {
                 return (
                     <>
                     <p>{movie.Title} ({movie.Year})</p>
-                    <button onClick={()=>test()}>Remove</button>
+                    <button onClick={()=>remove(movie)}>Remove</button>
                     </>
                 )
             })}
