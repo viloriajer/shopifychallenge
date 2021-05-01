@@ -1,17 +1,20 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {Context} from '../App'
 
-export const Nominations = ({nominations}) => {
+export const Nominations = () => {
+
+    const {nominees} = useContext(Context)
 
     const remove = () =>{
     }
     return (
         <div>
             <h4>Nominations</h4>
-            {nominations?.map((movie)=>{
+            {nominees?.map((movie)=>{
                 return (
                     <>
                     <p>{movie.Title} ({movie.Year})</p>
-                    <button onClick={()=>remove}>Remove</button>
+                    <button onClick={()=>test()}>Remove</button>
                     </>
                 )
             })}

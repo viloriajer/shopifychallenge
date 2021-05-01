@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import { MovieProvider } from '../context/Context'
 import { Nominations } from './Nominations'
+import {Context} from '../App'
 
-export const Results = ({title, results}) => {
-    const [nominees,setNominees] = useState([])
+export const Results = () => {
+
+    const {results,title,nominees,setNominees} = useContext(Context);
 
     const nominate = (movie) =>{
-        nominees.push(movie)
+        const newArray = [...nominees,movie]
+        setNominees(newArray)
+        console.log(newArray);
     }
     return (
         <div>
@@ -14,7 +19,7 @@ export const Results = ({title, results}) => {
                 return (
                     <>
                     <p>{movie.Title} ({movie.Year})</p>
-                    <button onClick={()=>nominate(movie)}>Nominate</button>
+                    <button onClick={()=>nominate(movie)} disabled={nominees.some(item=>item.imdbID === movie.imdbID) ? true: false}>Nominate</button>
                     </>
                     )
             })}
