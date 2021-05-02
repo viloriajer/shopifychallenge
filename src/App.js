@@ -21,11 +21,15 @@ function App() {
     }
     }>
 
-    <div>
-
       <h1>The Shoppies</h1>
+
+    <div style={{display:"flex"}}>
+    <div style={{marginRight:50, marginLeft:50}}>
       <Search/>
-      <Results/>
+
+    </div>
+
+      {/* <Results/> */}
       <Nominations/>
     </div>
     </Context.Provider>

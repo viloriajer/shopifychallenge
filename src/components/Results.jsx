@@ -14,7 +14,7 @@ export const Results = () => {
     }
     return (
         <div>
-            <h4>{title ? `Results for "${title}"` : "Results"}</h4>
+            <h4>{title ? `Results for "${title}"` : ""}</h4>
             {results?.map((movie)=>{
                 return (
                     <>
